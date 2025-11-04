@@ -68,6 +68,58 @@ npm run lint
 - **React** 19.1.1 - UIライブラリ / UI library
 - **Vite** 7.1.7 - ビルドツール / Build tool
 - **ESLint** 9.36.0 - コード品質チェック / Code quality checker
+- **Zustand** 5.0.8 - 状態管理ライブラリ / State management library
+- **Tailwind CSS** 3.4.18 - ユーティリティファーストCSSフレームワーク / Utility-first CSS framework
+- **Orval** 7.13.2 - OpenAPI仕様からAPIクライアント生成 / API client generator from OpenAPI specs
+
+## ライブラリの使い方 / Library Usage
+
+### Zustand (状態管理 / State Management)
+
+Zustandは軽量で使いやすい状態管理ライブラリです。
+
+Zustand is a lightweight and easy-to-use state management library.
+
+```javascript
+import { create } from 'zustand';
+
+const useStore = create((set) => ({
+  count: 0,
+  increment: () => set((state) => ({ count: state.count + 1 })),
+}));
+```
+
+### Tailwind CSS (スタイリング / Styling)
+
+Tailwind CSSはユーティリティクラスベースのCSSフレームワークです。
+
+Tailwind CSS is a utility-class based CSS framework.
+
+```jsx
+<button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+  Click me
+</button>
+```
+
+設定ファイル / Configuration file: `tailwind.config.js`
+
+### Orval (APIクライアント生成 / API Client Generation)
+
+OrvalはOpenAPI仕様からTypeScript APIクライアントを自動生成します。
+
+Orval automatically generates TypeScript API clients from OpenAPI specifications.
+
+1. OpenAPI仕様ファイルを配置 / Place your OpenAPI spec file
+2. `orval.config.js` の `input` パスを更新 / Update the `input` path in `orval.config.js`
+3. 生成コマンド実行 / Run generation command:
+
+```bash
+npx orval
+```
+
+生成されたコードは `src/api/generated` に保存されます。
+
+Generated code will be saved to `src/api/generated`.
 
 ## プロジェクト構造 / Project Structure
 
